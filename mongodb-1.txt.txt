@@ -1,0 +1,83 @@
+exercice 1:
+use twisted_db;
+
+exercice 2:
+show databases;
+
+Exercice 3
+use crooked_db;
+db.createCollection("users");
+show databases;
+
+Exercice 4
+use fake_db;
+db.createCollection("fake_users");
+db.createCollection("fake_customers");
+show collections;
+
+Exercice 5
+db.fake_users.insert({name:"Mick",location:"Chicago",age:64});
+
+Exercice 6
+use magic_db;
+db.createCollection("magic_users");
+db.magic_users.insert({name:"Johnson"});
+db.magic_users.find();
+
+Exercice 7
+db.createCollection("magic_products");
+db.magic_products.insert({name:"Crazy wine"});
+db.magic_products.insert({name:"Weird shoes"});
+db.magic_products.find();
+db.magic_products.findOne();
+
+Exercice 8
+use magic_db;
+db.users.find().pretty();
+
+Exercice 9
+db.users.find({"age":20}).pretty();
+
+Exercice 10
+db.products.find({"on_sale":true, "price":100}).pretty();
+
+Exercice 11
+db.bands.find({"members":"Eleni"}).pretty();
+
+Exercice 12
+db.bands.find({"members":{$in:["Eleni","Doll"]}});
+
+exercice 13:
+db.bands.find({"creation_date":{$lt:2010}});
+
+exercice 14:
+db.bands.find({"company.city":"dallas"
+
+exercice 15: 
+db.players.find({"team":"Seatle Supersonics"});
+
+exercice 16:
+db.players.find({"JerseyNumver":40});
+
+exercice 17:
+db.players.find({"previousTeams.":"Chicago Bulls"});
+
+exercice 18:
+db.players.find("previousTeams:*{$all:[*Chicago Bulls",Miami Heat*});
+
+Exercice 19
+db.players.find("previousTeams:"{$all:["Chicago Bulls","Miami Heat"]});
+
+Exercice 20
+db.players.find({"age":{$gt:30});
+
+Exercice 21
+db.bands.find({"birthPlace.country"="Spain"});
+
+Autres exercices 
+1.db.restaurants.find().pretty();
+2.db.restaurants.find({},{"restaurant_id" : 1, "name" : 1, "borough" : 1, "cuisine" : 1}).pretty();
+3.db.restaurants.find({},{"restaurant_id" : 1, "name": 1, "borough": 1, "cuisine" : 1, "_id" : 0}).pretty();
+4. db.restaurants.find({},{"restaurant_id" : 1, "name" : 1, "borough" : 1, "address.zipcode" : 1, "_id" : 0}).pretty();
+5.db.restaurants.find({ "borough" : "Bronx" }).pretty();
+6. db.restaurants.find({"borough": "Bronx"}).limit(5).pretty();
